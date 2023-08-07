@@ -6,7 +6,7 @@ import lombok.Data;
 public class PirateCrew {
     private Long id;
     private String name;
-    private String nickname;
+    private String nickName;
     private String email;
     private String position;
 }

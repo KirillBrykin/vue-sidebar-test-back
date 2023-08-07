@@ -33,7 +33,7 @@ public class PirateCrewController {
     public void create(@RequestBody PirateCrew crew) {
         PirateCrewEntity crewEntity = PirateCrewEntity.builder()
                 .name(crew.getName())
-                .nickname(crew.getNickname())
+                .nickName(crew.getNickName())
                 .email(crew.getEmail())
                 .position(crew.getPosition())
                 .build();
@@ -44,7 +44,7 @@ public class PirateCrewController {
     public void update(@RequestBody PirateCrew crew) {
         PirateCrewEntity crewEntity = PirateCrewEntity.builder()
                 .name(crew.getName())
-                .nickname(crew.getNickname())
+                .nickName(crew.getNickName())
                 .email(crew.getEmail())
                 .position(crew.getPosition())
                 .id(crew.getId())

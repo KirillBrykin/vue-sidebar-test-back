@@ -15,7 +15,7 @@ public class PirateCrewEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String nickname;
+    private String nickName;
     private String email;
     private String position;
 }
