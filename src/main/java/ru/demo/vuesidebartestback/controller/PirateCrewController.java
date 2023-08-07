@@ -12,8 +12,8 @@ import java.util.Optional;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/pirate")
-public class PirateController {
+@RequestMapping("api/crew")
+public class PirateCrewController {
 
     private final PirateDAO pirateDAO;
 
