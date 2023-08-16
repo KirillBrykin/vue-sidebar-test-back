@@ -1,6 +1,7 @@
 package ru.demo.vuesidebartestback.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.demo.vuesidebartestback.dao.PirateDAO;
 import ru.demo.vuesidebartestback.dao.entity.PirateEntity;
@@ -18,18 +19,21 @@ public class PirateCrewController {
     private final PirateDAO pirateDAO;
 
     @GetMapping
+    @PreAuthorize("hasRole('client_role_admin')")
     public List<PirateEntity> crew() throws InterruptedException {
         Thread.sleep(400); // демо ожидание для семинара по VueJS
         return pirateDAO.findAll();
     }
 
     @GetMapping("{id}")
+    @PreAuthorize("hasRole('client_role_admin')")
     public PirateEntity crewPirateById(@PathVariable Long id) {
         Optional<PirateEntity> op = pirateDAO.findById(id);
         return op.orElseThrow();
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('client_role_admin')")
     public void create(@RequestBody Pirate pirate) {
         PirateEntity pirateEntity = PirateEntity.builder()
                 .name(pirate.getName())
@@ -41,6 +45,7 @@ public class PirateCrewController {
     }
 
     @PutMapping("{id}")
+    @PreAuthorize("hasRole('client_role_admin')")
     public void update(@RequestBody Pirate pirate) {
         PirateEntity pirateEntity = PirateEntity.builder()
                 .name(pirate.getName())
@@ -53,6 +58,7 @@ public class PirateCrewController {
     }
 
     @DeleteMapping("{id}")
+    @PreAuthorize("hasRole('client_role_admin')")
     public void delete(@PathVariable long id) {
         pirateDAO.deleteById(id);
     }
