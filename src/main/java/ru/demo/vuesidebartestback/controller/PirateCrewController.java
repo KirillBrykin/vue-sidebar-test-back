@@ -19,7 +19,7 @@ public class PirateCrewController {
     private final PirateDAO pirateDAO;
 
     @GetMapping
-    @PreAuthorize("hasRole('client_role_admin')")
+    @PreAuthorize("hasRole('client_role_user')")
     public List<PirateEntity> crew() throws InterruptedException {
         Thread.sleep(400); // демо ожидание для семинара по VueJS
         return pirateDAO.findAll();
